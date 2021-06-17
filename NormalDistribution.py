@@ -27,8 +27,6 @@ length2=len(listOfSecondSD)
 length3=len(listOfThirdtSD)
 
 # mean1=statistics.mean(list(firstSDStart))
-print(firstSDStart)
-
 
 percentage1=(length1/len(data))*100
 percentage2=(length2/len(data))*100
@@ -40,3 +38,8 @@ fig.add_trace(go.Scatter(x=[firstSDStart,firstSDStart],y=[0,0.17],name="SD1",mod
 fig.add_trace(go.Scatter(x=[secondSDStart,secondSDStart],y=[0,0.17],name="SD1",mode="lines"))
 fig.add_trace(go.Scatter(x=[thirdSDStart,thirdSDStart],y=[0,0.17],name="SD1",mode="lines"))
 fig.show()
+
+print("Mean of the data",mean," \nStandardDeviation of data",sd)
+print(percentage1,"% of data lies within SD1")
+print(percentage2,"% of data lies within SD2")
+print(percentage3,"% of data lies within SD3")
