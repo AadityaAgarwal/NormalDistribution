@@ -1,4 +1,5 @@
 import csv
+from os import name
 import pandas as pd
 import statistics
 import plotly.figure_factory as ff
@@ -25,12 +26,17 @@ length1=len(listOfFirstSD)
 length2=len(listOfSecondSD)
 length3=len(listOfThirdtSD)
 
+# mean1=statistics.mean(list(firstSDStart))
+print(firstSDStart)
+
+
 percentage1=(length1/len(data))*100
 percentage2=(length2/len(data))*100
 percentage3=(length3/len(data))*100
 
-print('mean ',mean,'\nmedian ',median,' \nmode ',mode,)
-print('Standard Deviation ',sd)
-print(percentage1,'% of data lies withing 1 SD')
-print(percentage2,'% of data lies withing 2 SD')
-print(percentage3,'% of data lies withing 3 SD')
+fig=ff.create_distplot([data],['reading score'],show_hist=False)
+fig.add_trace(go.Scatter(x=[mean,mean],y=[0,0.17],mode="lines",name="Mean"))
+fig.add_trace(go.Scatter(x=[firstSDStart,firstSDStart],y=[0,0.17],name="SD1",mode="lines"))
+fig.add_trace(go.Scatter(x=[secondSDStart,secondSDStart],y=[0,0.17],name="SD1",mode="lines"))
+fig.add_trace(go.Scatter(x=[thirdSDStart,thirdSDStart],y=[0,0.17],name="SD1",mode="lines"))
+fig.show()
